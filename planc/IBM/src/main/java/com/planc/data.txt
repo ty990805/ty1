@@ -1,0 +1,59 @@
+format：
+REXXLIB ADD DSN(Rexxlib data set name) VOL(<volser>)
+OTHERLIB ADD DSN(Rexxlib data set name) VOL(<volser>)
+
+example:
+        REXXLIB ADD VOL(VOL1) DSN(DSN1)
+        REXXLIB DELETE DSN(DSN2) VOL(VOL2)
+        REXXLIB ADD DSN(DSN3) VOL(VOL3)
+        OTHERLIB ADD DSN(Rexxlib data set name) VOL(<volser>)
+
+e.g.2
+filter 2 = [ADD]
+List<List<String>> filter = {{ADD}}
+
+ADD
+匹配，返回符合条件的所有 statement_value
+
+e.g.3
+filter 2 = [ADD,DELETE]
+List<List<String>> filter = {
+                            {{ADD},{DELETE}}
+                            }
+ADD 或 DELETE
+匹配分别满足的情况
+
+e.g.4
+filter 2 = [ADD]
+filter 3 = [{DSN:DSN1},{VOL:VOL3)}]  //注意，或的关系
+
+传给 filter 的数据
+List<List<String>> filter = {{ADD},
+                             {{DSN:DSN1},{VOL:VOL3)}}
+                             }
+
+
+ADD DSN:DSN1  或 ADD VOL:VOL3
+
+
+ADD VOL(VOL1) DSN(DSN1)    List<String> filter = {ADD,DSN:DSN1}
+ADD VOL(VOL1) DSN(DSN1)    List<String> filter = {ADD,VOL:VOL3}
+
+匹配，返回符合条件的所有 statement_value
+
+
+e.g.5
+filter 2 = [ADD]
+filter 3 = [{DSN:DSN1}]  //注意，filter之间与的关系
+filter 4 = [{VOL:VOL3)}]  //注意，filter之间与的关系
+
+传给 filter 的数据
+List<List<String>> filter ={
+                            {ADD}
+                            {DSN:DSN1}
+                            {VOL:VOL3}
+                            }
+ADD DSN:DSN1 VOL:VOL3
+匹配，返回符合条件的所有 statement_value
+
+

@@ -1,0 +1,14 @@
+INIT       MLIM  {(nnnn)}
+                 {(1500)}
+           LOGLIM  {(nnnnnn)}
+                   {(1000  )}
+           RLIM  (nnnn)
+           AMRF  {(Y)}
+                 {(N)}
+           UEXIT  {(Y)}
+                  {(N)}
+INIT2       MLIM  {(nnnn)}
+                 {(1500)}
+           APPLID  (nnnnnnnn)
+           GENERIC  (nnnnnnnn)
+           MSGFLD  (xx[,(wrd)])
