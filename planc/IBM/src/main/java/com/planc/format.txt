@@ -1,0 +1,128 @@
+PLATCMD{NAMES(cmd1,cmd2...)} | {NONE}
+PLATPGM{NAMES(pgm1,pgm2...)} | {NONE }
+ALLOCATE DEFAULT{(OLD)} | {(SHR)}
+AUTHCMD NAMES(cmd1,cmd2...)
+AUTHPGM NAMES(pgm1,pgm2...)
+AUTHTSF NAMES(name1,name2...)
+NOTBKGND NAMES(cmd1,cmd2...)
+HELP language(dsname1[,dsname2,...])[,language(dsname1[,dsname2,...])]
+LOGON
+  LOGONHERE(ON|OFF)
+  PASSWORDPREPROMPT(ON|OFF)
+  PASSPHRASE(ON|OFF)
+  TIMEOUT(n)
+  USERIDMAX{(7)} | {(8)}
+  VERIFYAPPL(ON|OFF)
+CONSOLE INITUNUM(nnnn) INITSNUM(nnnn) MAXUNUM(nnnnn) MAXSNUM(nnnnn)
+TEST TSOCMD(cmd1,cmd2,cmd3.....)
+     SUBCMD((scmd1,load1),(scmd2,load2)...)
+TRANSREC
+    NODESMF{((nodename1,smfid1),(nodename2,smfid2),...)}
+    {((*,*)) SPOOLCL(spoolclass)
+    CIPHER{(ALWAYS) | (YES) | (NO)} OUTWARN(n1,n2)
+    OUTLIM(n1)
+    VIO(unitname) LOGSEL(logselector) LOGNAME(lognamesuffix) USRCTL(name) SYSCTL(datasetname) SYSOUT(sysoutclass | *) DAPREFIX(TUPREFIX | USERID)
+SEND
+    OPERSEND(ON| OFF),
+    USERSEND(ON | OFF),
+    SAVE(ON | OFF),
+    USEBROD(ON | OFF)
+    CHKBROD(ON | OFF)
+    BROADCAST (DATASET(data-set-name) VOLUME(volume-name)
+    TIMEOUT(time-out) switch-prompt) MSGPROTECT(ON|OFF)
+    LOGNAME(data-set-name | *)
+    SYSPLEXSHR(ON|OFF) USERLOGSIZE(primary-quantity,secondary-quantity,dir-block) OPERSEWAIT(ON|OFF)
+{AUTOCVT(ON|ALL|OFF)}
+{MAXIOBUFUSER(nnnnn)}
+{LOSTMSG(ON|OFF)}
+{PWT(SMF|SMFENV|ENV}
+{MAXPROCSYS(nnnnn)}
+{MAXPROCUSER(nnnnn)}
+{MAXUIDS(nnnnn)}
+{MAXFILEPROC(nnnnnn)}
+{MAXTHREADTASKS(nnnnn)}
+{MAXTHREADS(nnnnnn)}  {MAXPIPEUSER(nnnnn)
+{MAXPTYS(nnnnn)}
+{MAXFILESIZE(nnnnn|NOLIMIT)}
+{MAXCORESIZE(nnnnn)}
+{MAXASSIZE(nnnnn)}
+{MAXCPUTIME(nnnnn)}
+{MAXMMAPAREA(nnnnn)}
+{MAXSHAREPAGES(nnnnn)}
+{RESOLVER_PROC(nnnnn|DEFAULT|NONE)}
+{SHRLIBRGNSIZE(nnnnn)}
+{SHRLIBMAXPAGES(nnnnn)}
+{PRIORITYGOAL(service_class_name1,...service_class_name40|NONE)}
+{IPCMSGNIDS(nnnnn)}
+{IPCMSGQBYTES(nnnnn)}
+{IPCMSGQMNUM(nnnnn)}
+{IPCSEMNIDS(nnnnn)}
+{IPCSEMNOPS(nnnnn)}
+{IPCSEMNSEMS(nnnnn)}
+{IPCSHMMPAGES(nnnnn)}
+{IPCSHMNIDS(nnnnn)}
+{IPCSHMNSEGS(nnnnn)}
+{IPCSHMSPAGES(nnnnn)}
+{FORKCOPY(COPY)}
+{SUPERUSER(user_name)}
+{TTYGROUP(group_name)}
+{CTRACE(parmlib_member_name)}
+{STEPLIBLIST('/etc/steplib')}
+{USERIDALIASTABLE('/etc/tablename')}
+{SERV_LPALIB('dsname', 'volser')}
+{SERV_LINKLIB('dsname', 'volser')}
+{FILESYSTYPE TYPE(type_name)
+         ENTRYPOINT(entry_name)
+         PARM('parm')}
+         ASNAME(proc_name,'start_parms') 
+{SYSPLEX(YES|NO)}
+{VERSION('nnnn'[,UNMOUNT|NOUNMOUNT])}
+{ROOT  FILESYSTEM('fsname') or DDNAME(ddname)
+         TYPE(type_name)
+         MODE(access)
+         PARM('parameter')
+         SETUID|NOSETUID
+         SYSNAME(sysname)
+         TAG(NOTEXT|TEXT,ccsid)
+         AUTOMOVE|NOAUTOMOVE
+         MKDIR('pathname')}
+{MOUNT FILESYSTEM('fsname') or DDNAME(ddname)
+         TYPE(type_name)
+         MOUNTPOINT('pathname')
+         MODE(access)
+         PARM('parameter')
+         SETUID|NOSETUID
+         SECURITY|NOSECURITY
+         SYSNAME(sysname)
+         TAG(NOTEXT|TEXT,ccsid)
+         AUTOMOVE[(INCLUDE,sysname1,sysname2,...,[sysnameN|*])]
+         |[(EXCLUDE,sysname1,sysname2,...,sysnameN)]
+         |NOAUTOMOVE|UNMOUNT
+         MKDIR('pathname')}
+{NETWORK DOMAINNAME(sockets_domain_name)
+         DOMAINNUMBER(sockets_domain_number)
+         MAXSOCKETS(nnnnn)
+         TYPE(type_name)
+         INADDRANYPORT(starting_port_number)
+         INADDRANYCOUNT(number_of_ports_to_reserve)}
+{SUBFILESYSTYPE NAME(transport_name)
+         TYPE(type_name)
+         ENTRYPOINT(entry_name)
+         PARM('parameter')
+         DEFAULT}
+{STARTUP_PROC(procname)}
+{STARTUP_EXEC('dsname(membername)',class)}
+{RUNOPTS('string')}
+{SYSCALL_COUNTS(YES|NO)}
+{MAXQUEUEDSIGS(nnnnnn)}
+{LIMMSG(NONE|SYSTEM|ALL)}
+{AUTHPGMLIST('/etc/authfile')|NONE}
+{SWA(ABOVE|BELOW)}
+{ALTROOT FILESYSTEM('fsname')
+           PARM('parameter')
+           MOUNTPOINT('pathname')}
+{ALTROOT NONE}
+{NONEMPTYMOUNTPT(NOWARN|WARN|DENY)}
+{MAXUSERMOUNTSYS(nnnnn)}
+{MAXUSERMOUNTUSER(nnnnn)}
+{SC_EXITTABLE('/etc/tablename')}  
