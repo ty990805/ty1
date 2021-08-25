@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 public class ReadParam {
-    public List<Data> format2Param(Set<String> statement_key,File file){
+    public List<Data> format2Param(List<String> statement_key,File file){
         List<Data> list = new ArrayList<>();
         Data data = new Data();
         BufferedReader br = null;

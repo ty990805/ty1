@@ -1,6 +1,8 @@
 package com.planc.service.read;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -17,31 +19,16 @@ public class ReadFormat {
             String s = null;
             while ((s = br.readLine()) != null){
                 if(!Character.isSpaceChar(s.charAt(0))){
-                    Character q = s.charAt(0);
-                    String[] s_sub;
-                    if(q.equals('{')){
-                        s_sub = s.split("[^a-zA-Z_()]");
-                    }else {
-                        s_sub = s.split("[^a-zA-Z_(){}]");
-                    }
-                    // s_sub = s.split("[^a-zA-Z_(){}]");
+                    String[] s_sub = s.split("[^a-zA-Z_]");
                     statement = s_sub[0];
-                    A:for(String s_ :s_sub){
+                    for(String s_ :s_sub){
                         if(s_.matches("\\s*")){
                         }else {
-                            for(Character c: s_.toCharArray()){
-                                if(c.equals('(') || c.equals('{')){
-                                    statement = "";
-                                    break A;
-                                }
-                            }
                             statement = s_;
                             break;
                         }
                     }
-                    if (!statement.isEmpty()){
-                        statement_key.add(statement);
-                    }
+                    statement_key.add(statement);
                 }
             }
         } catch (Exception e) {
